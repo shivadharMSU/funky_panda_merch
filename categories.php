@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'db_connect.php';
 
 // Check if logout request is made
 if(isset($_GET['logout'])) {
@@ -9,6 +10,18 @@ if(isset($_GET['logout'])) {
     header("Location: login.php");
     exit();
 }
+
+// Fetch categories from the database
+$sql = "SELECT * FROM category";
+$result = $conn->query($sql);
+$categories = [];
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $categories[] = $row;
+    }
+}
+
+$conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,6 +57,9 @@ if(isset($_GET['logout'])) {
             margin-top: 20px;
             border-radius: 10px;
         }
+        .card {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -56,7 +72,7 @@ if(isset($_GET['logout'])) {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="cart.php">Cart</a>
+                        <a class="nav-link" href="#">Cart</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="?logout=true">Logout</a>
@@ -69,19 +85,24 @@ if(isset($_GET['logout'])) {
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <br>
                 <ul class="list-group">
-                    <li class="list-group-item active"><a href="#" class="nav-link active">Home</a></li>
-                    <li class="list-group-item"><a href="categories.php" class="nav-link">Categories</a></li>
+                    <li class="list-group-item"><a href="#" class="nav-link active">Home</a></li>
+                    <li class="list-group-item"><a href="#" class="nav-link">Categories</a></li>
                     <li class="list-group-item"><a href="#" class="nav-link">Purchase History</a></li>
                 </ul>
             </div>
             <div class="col-md-9">
-                
-                <div class="company-section">
-                    <h2>About Funky Panda Merch</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero ac augue volutpat vehicula. Integer id mi id elit suscipit consectetur. Nulla eu nibh euismod, tempus felis sed, sagittis ipsum. Proin eu mi nec sapien finibus tempor. Duis interdum venenatis vestibulum.</p>
-                    <p>Proin in ultrices ipsum, id rutrum metus. Sed ac urna orci. Vivamus at risus eget ligula vestibulum viverra. Cras aliquam libero in gravida tincidunt. Curabitur lobortis, lectus vel aliquet accumsan, felis elit finibus arcu, a luctus neque libero eget justo.</p>
+                <div class="row">
+                    <?php foreach ($categories as $category) : ?>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title"><a href="productsDisplay.php?category_id=<?php echo $category['category_id']; ?>"><?php echo $category['category_name']; ?></a></h5>
+                                    <!-- You can add more information here if needed -->
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>

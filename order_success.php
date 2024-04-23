@@ -67,24 +67,7 @@ if(isset($_GET['logout'])) {
     </nav>
 
     <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <br>
-                <ul class="list-group">
-                    <li class="list-group-item active"><a href="#" class="nav-link active">Home</a></li>
-                    <li class="list-group-item"><a href="categories.php" class="nav-link">Categories</a></li>
-                    <li class="list-group-item"><a href="#" class="nav-link">Purchase History</a></li>
-                </ul>
-            </div>
-            <div class="col-md-9">
-                
-                <div class="company-section">
-                    <h2>About Funky Panda Merch</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero ac augue volutpat vehicula. Integer id mi id elit suscipit consectetur. Nulla eu nibh euismod, tempus felis sed, sagittis ipsum. Proin eu mi nec sapien finibus tempor. Duis interdum venenatis vestibulum.</p>
-                    <p>Proin in ultrices ipsum, id rutrum metus. Sed ac urna orci. Vivamus at risus eget ligula vestibulum viverra. Cras aliquam libero in gravida tincidunt. Curabitur lobortis, lectus vel aliquet accumsan, felis elit finibus arcu, a luctus neque libero eget justo.</p>
-                </div>
-            </div>
-        </div>
+       <p>order successfull <a href="">please continue shoppping</a></p>
     </div>
     
     <!-- Bootstrap JS -->
