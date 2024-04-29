@@ -3,16 +3,13 @@ session_start();
 include 'db_connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Fetch login form data
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Check login credentials
     $sql = "SELECT * FROM login_details WHERE user_name = '$username' AND password = '$password'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        // Login successful
         $row = $result->fetch_assoc();
         $_SESSION['username'] = $username;
         $_SESSION['user_type'] = $row['login_user_type'];
@@ -20,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: welcome.php");
         exit();
     } else {
-        // Login failed
         $error = "Invalid username or password!";
     }
 }
@@ -31,32 +27,30 @@ $conn->close();
 <html>
 <head>
     <title>Login</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
     <style>
         body {
-            background-color: #343a40; /* Black background */
-            color: #ffffff; /* White text */
+            background-color: #343a40; 
+            color: #ffffff; 
             padding-top: 50px;
         }
         .login-container {
-            background-color: #212529; /* Dark grey background */
+            background-color: #212529; 
             padding: 20px;
             border-radius: 10px;
         }
         .form-control {
-            background-color: #343a40; /* Black input field */
-            color: #ffffff; /* White text */
-            border: 1px solid #ffffff; /* White border */
+            background-color: #343a40; 
+            color: #ffffff; 
+            border: 1px solid #ffffff; 
         }
         .btn-primary {
-            background-color: #000000; /* Black button */
-            border-color: #000000; /* Black border */
+            background-color: #000000; 
+            border-color: #000000; 
         }
         .btn-primary:hover {
-            background-color: #212529; /* Dark grey hover color */
-            border-color: #212529; /* Dark grey hover color */
+            background-color: #212529; 
+            border-color: #212529; 
         }
     </style>
 </head>

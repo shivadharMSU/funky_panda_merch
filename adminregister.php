@@ -2,24 +2,26 @@
 include 'db_connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
+    $name = $_POST['name'];
     $mobile = $_POST['mobile'];
     $email = $_POST['email'];
-    $address = $_POST['address'];
-    $age = $_POST['age'];
-    $gender = $_POST['gender'];
+    $salary = $_POST['salary'];
+    $designation = $_POST['designation'];
+   
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql_customer = "INSERT INTO customer (first_name, last_name, mobile, email, address, age, gender) 
-                     VALUES ('$first_name', '$last_name', '$mobile', '$email', '$address', '$age', '$gender')";
+
+          $sql_customer  = "INSERT INTO `employee`( `name`, `mobile`, `email`, `salary`,`designation_id`)
+                      VALUES ('$name','$mobile','$email','$salary','$designation')";
+    echo $sql_customer;
     $conn->query($sql_customer);
     $customer_id = $conn->insert_id; 
 
 
     $sql_login = "INSERT INTO login_details (user_name, password, login_user_type, login_user_id) 
-                  VALUES ('$username', '$password', 'customer', '$customer_id')";
+                  VALUES ('$username', '$password', 'employee', '$customer_id')";
+                  
     $conn->query($sql_login);
 
   
@@ -32,7 +34,7 @@ $conn->close();
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Customer Registration</title>
+    <title>Employees Registration</title>
    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     
@@ -67,14 +69,12 @@ $conn->close();
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="registration-container">
-                    <h2>Customer Registration</h2>
+                    <h2>Employee Registration</h2>
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                         <div class="mb-3">
-                            <input type="text" class="form-control" name="first_name" placeholder="First Name">
+                            <input type="text" class="form-control" name="name" placeholder="First Name">
                         </div>
-                        <div class="mb-3">
-                            <input type="text" class="form-control" name="last_name" placeholder="Last Name">
-                        </div>
+                       
                         <div class="mb-3">
                             <input type="text" class="form-control" name="mobile" placeholder="Mobile">
                         </div>
@@ -82,28 +82,20 @@ $conn->close();
                             <input type="email" class="form-control" name="email" placeholder="Email">
                         </div>
                         <div class="mb-3">
-                            <input type="text" class="form-control" name="address" placeholder="Address">
+                            <input type="text" class="form-control" name="salary" placeholder="Salary">
                         </div>
-                        <div class="mb-3">
-                            <input type="text" class="form-control" name="age" placeholder="Age">
-                        </div>
+                        
                         <!-- <div class="mb-3">
                             <input type="text" class="form-control" name="gender" placeholder="Gender">
                         </div> -->
-                        <div class="mb-3">
-                        <label for="designation">Gender</label>
-                            <select class="form-control" name="gender" placeholder="Gender">
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                            </select>
-                        </div>
-                        <!-- <div class="mb-3">
+                        
+                         <div class="mb-3">
                             <label for="designation">Designation</label>
                             <select class="form-control" name="designation" placeholder="Designation">
-                                <option value="admin">Admin</option>
-                                <option value="employee">Employee</option>
+                                <option value="1">Admin</option>
+                                <option value="2">Employee</option>
                             </select>
-                        </div> -->
+                        </div> 
                         <div class="mb-3">
                             <input type="text" class="form-control" name="username" placeholder="Username">
                         </div>

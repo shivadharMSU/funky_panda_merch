@@ -7,8 +7,11 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 if (isset($_POST['cart_id'])) {
+    
     $cart_id = $_POST['cart_id'];
-    $sql = "DELETE FROM cart WHERE cart_id = $cart_id";
+    $quantity = $_POST['quantity'];
+    $sql = "UPDATE `cart` SET `quiantity`= $quantity WHERE `cart_id` = $cart_id";
+   
     if ($conn->query($sql) === TRUE) {
         header("Location: cart.php");
         exit();

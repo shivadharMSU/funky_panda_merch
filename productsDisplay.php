@@ -2,16 +2,13 @@
 session_start();
 include 'db_connect.php';
 
-// Check if user is not logged in, redirect to login page
 if(!isset($_SESSION['username'])) {
     header("Location: login.php");
     exit();
 }
 
-// Check if category_id is provided in the URL
 if(isset($_GET['category_id'])) {
     $category_id = $_GET['category_id'];
-    // Fetch products for the given category_id from the database
     $sql = "SELECT * FROM product WHERE category_id = $category_id";
     $result = $conn->query($sql);
     $products = [];
@@ -21,7 +18,6 @@ if(isset($_GET['category_id'])) {
         }
     }
 } else {
-    // Redirect to index page if category_id is not provided
     header("Location: index.php");
     exit();
 }
@@ -34,30 +30,28 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products Display</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
     <style>
         body {
-            background-color: #f8f9fa; /* Light grey background */
-            color: #212529; /* Black text */
+            background-color: #f8f9fa; 
+            color: #212529; 
         }
         .navbar {
-            background-color: #000000; /* Black navbar background */
+            background-color: #000000; 
         }
         .navbar-brand {
-            color: #ffffff !important; /* White text for navbar brand */
+            color: #ffffff !important; 
             font-weight: bold;
         }
         .navbar-nav .nav-link {
-            color: #ffffff !important; /* White text for navbar links */
+            color: #ffffff !important; 
         }
         .navbar-nav .nav-link.active {
-            color: #000000 !important; /* Black text for active navbar link */
-            background-color: #ffffff !important; /* White background for active navbar link */
+            color: #000000 !important; 
+            background-color: #ffffff !important; 
         }
         .company-section {
-            background-color: #ffffff; /* White background */
+            background-color: #ffffff; 
             padding: 20px;
             margin-top: 20px;
             border-radius: 10px;
@@ -66,22 +60,22 @@ $conn->close();
             margin-bottom: 20px;
         }
         .card-img-top {
-            height: 200px; /* Adjust height as needed */
-            object-fit: cover; /* Cover the entire card */
+            height: 200px; 
+            object-fit: cover; 
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
+<nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">Funky Panda Merch</a>
+            <a class="navbar-brand" href="welcome.php">Funky Panda Merch</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cart</a>
+                        <a class="nav-link" href="cart.php">Cart</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="?logout=true">Logout</a>
@@ -119,7 +113,7 @@ $conn->close();
         </div>
     </div>
     
-    <!-- Bootstrap JS -->
+   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
