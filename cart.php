@@ -65,6 +65,8 @@ $conn->close();
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
+        <img src="res/applogoblack.jpeg" alt="panda logo" width="80" height="70">
+
             <a class="navbar-brand" href="welcome.php">Funky Panda Merch</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -90,7 +92,7 @@ $conn->close();
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <img src="res/img<?php echo $product['product_id']; ?>.jpeg" class="card-img-top" alt="Product Image">
+                                    <img src="res/img<?php echo $product['product_id']; ?>.jpg" class="card-img-top" alt="Product Image">
                                 </div>
                                 <div class="col-md-8">
                                     <h5 class="card-title"><?php echo $product['name']; ?></h5>

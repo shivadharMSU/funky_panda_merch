@@ -44,6 +44,8 @@ if(isset($_GET['logout'])) {
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
+        <img src="res/applogoblack.jpeg" alt="panda logo" width="80" height="70">
+
             <a class="navbar-brand" href="welcome.php">Funky Panda Merch</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -73,11 +75,17 @@ if(isset($_GET['logout'])) {
             </div>
             <div class="col-md-9">
                 
-                <div class="company-section">
-                    <h2>About Funky Panda Merch</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero ac augue volutpat vehicula. Integer id mi id elit suscipit consectetur. Nulla eu nibh euismod, tempus felis sed, sagittis ipsum. Proin eu mi nec sapien finibus tempor. Duis interdum venenatis vestibulum.</p>
-                    <p>Proin in ultrices ipsum, id rutrum metus. Sed ac urna orci. Vivamus at risus eget ligula vestibulum viverra. Cras aliquam libero in gravida tincidunt. Curabitur lobortis, lectus vel aliquet accumsan, felis elit finibus arcu, a luctus neque libero eget justo.</p>
-                </div>
+            <div class="company-section">
+    <h2>About Chunkey Panda Merch</h2>
+    <p>Welcome to Chunkey Panda Merch!</p>
+    <p>At Chunkey Panda Merch, we're more than just an online store – we're a haven for fans of the beloved Kung Fu Panda series. Since our launch on April 30th, 2024, we've been dedicated to bringing the magic of Po and his friends to life through an exciting array of clothing, accessories, home decor, and more.</p>
+    <p>Our journey began with a passion for the timeless story of a panda who dreams of becoming a Kung Fu master. Inspired by the warmth, humor, and wisdom of the films, we set out to create a space where fans like us could find unique, high-quality merchandise to celebrate their love for the franchise.</p>
+    <p>What sets Chunkey Panda Merch apart is our commitment to excellence in both product and service. Each item in our collection is carefully curated, ensuring that it meets our standards of quality, authenticity, and craftsmanship. Whether you're searching for a cozy hoodie featuring Po's iconic grin or a stylish mug adorned with your favorite characters, you'll find it here.</p>
+    <p>But our dedication doesn't stop with our products – it extends to our customers as well. We strive to provide an exceptional shopping experience, from the moment you browse our website to the day your order arrives at your doorstep. With secure payment options, fast shipping, and responsive customer support, we're here to make your journey with Chunkey Panda Merch as smooth and enjoyable as possible.</p>
+    <p>As fellow fans of Kung Fu Panda, we understand the joy that comes from surrounding yourself with reminders of the adventures, lessons, and friendships found in the films. Whether you're treating yourself or searching for the perfect gift for a fellow fan, we invite you to explore our collection and join us in celebrating the spirit of Chunkey Panda.</p>
+    <p>Thank you for choosing Chunkey Panda Merch – where every purchase brings a little piece of the Valley of Peace into your world.</p>
+</div>
+
             </div>
         </div>
     </div>
