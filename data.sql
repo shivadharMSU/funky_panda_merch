@@ -1,33 +1,21 @@
 
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-
 
 CREATE TABLE `cart` (
   `cart_id` int(11) NOT NULL,
   `product_id` int(11) DEFAULT NULL,
   `customer_id` int(11) DEFAULT NULL,
   `quiantity` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) 
 
--- --------------------------------------------------------
 
---
--- Table structure for table `category`
---
 
 CREATE TABLE `category` (
   `category_id` int(11) NOT NULL,
   `category_name` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) 
 
---
--- Dumping data for table `category`
---
+
 
 INSERT INTO `category` (`category_id`, `category_name`) VALUES
 (1, 'Apparel'),
@@ -51,7 +39,7 @@ CREATE TABLE `customer` (
   `address` varchar(100) DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
   `gender` varchar(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) 
 
 --
 -- Dumping data for table `customer`
@@ -70,7 +58,7 @@ INSERT INTO `customer` (`customer_id`, `first_name`, `last_name`, `mobile`, `ema
 CREATE TABLE `designation` (
   `designation_id` int(11) NOT NULL,
   `designation_name` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) 
 
 --
 -- Dumping data for table `designation`
@@ -94,7 +82,7 @@ CREATE TABLE `employee` (
   `designation_id` int(11) DEFAULT NULL,
   `salary` int(11) DEFAULT NULL,
   `manager_id` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) 
 
 --
 -- Dumping data for table `employee`
@@ -115,7 +103,7 @@ CREATE TABLE `login_details` (
   `password` varchar(100) DEFAULT NULL,
   `login_user_type` varchar(100) DEFAULT NULL,
   `login_user_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) 
 
 --
 -- Dumping data for table `login_details`
@@ -140,7 +128,7 @@ CREATE TABLE `product` (
   `price` decimal(10,0) DEFAULT NULL,
   `quantity` int(11) DEFAULT NULL,
   `category_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) 
 
 --
 -- Dumping data for table `product`
@@ -179,6 +167,11 @@ INSERT INTO `product` (`product_id`, `name`, `description`, `color`, `price`, `q
 (30, 'Zhen poster', 'Zhen KUNG FU PANDA 4 movie poster - Wall Art Decor Cinephile Gift', 'multi coloured', 45, 1, 5),
 (31, 'KFP 4 Poster', 'Kung Fu Panda 4 Poster', 'multi coloured', 44, 5, 5);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `purchases`
+--
 
 CREATE TABLE `purchases` (
   `purchase_id` int(11) NOT NULL,
@@ -315,13 +308,13 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `purchase_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `purchase_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `purchase_product`
 --
 ALTER TABLE `purchase_product`
-  MODIFY `purchase_product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `purchase_product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
@@ -358,8 +351,4 @@ ALTER TABLE `purchases`
 ALTER TABLE `purchase_product`
   ADD CONSTRAINT `purchase_customer_relation` FOREIGN KEY (`purchase_id`) REFERENCES `purchases` (`purchase_id`) ON DELETE NO ACTION,
   ADD CONSTRAINT `purchase_product_relation` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE NO ACTION;
-COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
