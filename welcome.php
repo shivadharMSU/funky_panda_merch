@@ -76,9 +76,9 @@ if(isset($_GET['logout'])) {
             <div class="col-md-9">
                 
             <div class="company-section">
-    <h2>About Chunkey Panda Merch</h2>
-    <p>Welcome to Chunkey Panda Merch!</p>
-    <p>At Chunkey Panda Merch, we're more than just an online store – we're a haven for fans of the beloved Kung Fu Panda series. Since our launch on April 30th, 2024, we've been dedicated to bringing the magic of Po and his friends to life through an exciting array of clothing, accessories, home decor, and more.</p>
+    <h2>About Funky Panda Merch</h2>
+    <p>Welcome to Funky Panda Merch!</p>
+    <p>At Funky Panda Merch, we're more than just an online store – we're a haven for fans of the beloved Kung Fu Panda series. Since our launch on April 30th, 2024, we've been dedicated to bringing the magic of Po and his friends to life through an exciting array of clothing, accessories, home decor, and more.</p>
     <p>Our journey began with a passion for the timeless story of a panda who dreams of becoming a Kung Fu master. Inspired by the warmth, humor, and wisdom of the films, we set out to create a space where fans like us could find unique, high-quality merchandise to celebrate their love for the franchise.</p>
     <p>What sets Chunkey Panda Merch apart is our commitment to excellence in both product and service. Each item in our collection is carefully curated, ensuring that it meets our standards of quality, authenticity, and craftsmanship. Whether you're searching for a cozy hoodie featuring Po's iconic grin or a stylish mug adorned with your favorite characters, you'll find it here.</p>
     <p>But our dedication doesn't stop with our products – it extends to our customers as well. We strive to provide an exceptional shopping experience, from the moment you browse our website to the day your order arrives at your doorstep. With secure payment options, fast shipping, and responsive customer support, we're here to make your journey with Chunkey Panda Merch as smooth and enjoyable as possible.</p>

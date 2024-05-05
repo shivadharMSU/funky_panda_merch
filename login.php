@@ -14,12 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['username'] = $username;
         $_SESSION['user_type'] = $row['login_user_type'];
         $_SESSION['user_id'] = $row['login_user_id'];
-        if ($_SESSION['user_type'] == "customer") {
+        if ($row['login_user_type'] == "customer") {
             header("Location: welcome.php");
         } else {
             header("Location: admin.php");
         }
-        header("Location: welcome.php");
+        
         exit();
     } else {
         $error = "Invalid username or password!";

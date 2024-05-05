@@ -1,3 +1,32 @@
+<?php
+include 'db_connect.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $mobile = $_POST['mobile'];
+    $email = $_POST['email'];
+    $address = $_POST['address'];
+    $age = $_POST['age'];
+    $gender = $_POST['gender'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $sql_customer = "INSERT INTO customer (first_name, last_name, mobile, email, address, age, gender) 
+                     VALUES ('$first_name', '$last_name', '$mobile', '$email', '$address', '$age', '$gender')";
+    $conn->query($sql_customer);
+    $customer_id = $conn->insert_id; 
+
+    $sql_login = "INSERT INTO login_details (user_name, password, login_user_type, login_user_id) 
+                  VALUES ('$username', '$password', 'customer', '$customer_id')";
+    $conn->query($sql_login);
+
+    header("Location: login.php");
+    exit();
+}
+
+$conn->close();
+?>
 <!DOCTYPE html>
 <html>
 <head>
