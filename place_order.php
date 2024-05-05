@@ -9,7 +9,7 @@ if (!isset($_SESSION['username'])) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $payment_method = $_POST['payment_method'];
-    echo $payment_method;
+    
     $customer_id = $_SESSION['user_id'];
     
 

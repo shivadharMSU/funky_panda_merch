@@ -18,7 +18,7 @@ if(isset($_GET['category_id'])) {
         }
     }
 } else {
-    header("Location: index.php");
+    header("Location: welcome.php");
     exit();
 }
 

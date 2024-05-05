@@ -35,12 +35,12 @@ $conn->close();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #343a40; 
+            /* background-color: #343a40;  */
             color: #ffffff; 
             padding-top: 50px;
         }
         .login-container {
-            background-color: #212529; 
+            background-color: black; 
             padding: 20px;
             border-radius: 10px;
         }
@@ -62,14 +62,18 @@ $conn->close();
 <body>
     <div class="container">
         <div class="row justify-content-center">
+        <h1 style="color: black; text-align: center;">Welcome Funky Panda Merch</h1>
+
             <div class="col-md-4">
                 <div class="login-container">
                     <h2>Login</h2>
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                         <div class="mb-3">
+                            <label for="">User name</label>
                             <input type="text" class="form-control" name="username" placeholder="Username">
                         </div>
                         <div class="mb-3">
+                            <label for="">Password</label>
                             <input type="password" class="form-control" name="password" placeholder="Password">
                         </div>
                         <button type="submit" class="btn btn-primary">Login</button>

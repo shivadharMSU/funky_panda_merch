@@ -11,13 +11,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-
-          $sql_customer  = "INSERT INTO `employee`( `name`, `mobile`, `email`, `salary`,`designation_id`)
+    $sql_customer  = "INSERT INTO `employee`( `name`, `mobile`, `email`, `salary`,`designation_id`)
                       VALUES ('$name','$mobile','$email','$salary','$designation')";
     echo $sql_customer;
     $conn->query($sql_customer);
     $customer_id = $conn->insert_id; 
-
 
     $sql_login = "INSERT INTO login_details (user_name, password, login_user_type, login_user_id) 
                   VALUES ('$username', '$password', 'employee', '$customer_id')";
@@ -40,7 +38,6 @@ $conn->close();
     
     <style>
         body {
-            background-color: #343a40; 
             color: #ffffff; 
             padding-top: 50px;
         }
@@ -72,35 +69,35 @@ $conn->close();
                     <h2>Employee Registration</h2>
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                         <div class="mb-3">
-                            <input type="text" class="form-control" name="name" placeholder="First Name">
-                        </div>
-                       
-                        <div class="mb-3">
-                            <input type="text" class="form-control" name="mobile" placeholder="Mobile">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Name">
                         </div>
                         <div class="mb-3">
-                            <input type="email" class="form-control" name="email" placeholder="Email">
+                            <label for="mobile">Mobile</label>
+                            <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Mobile">
                         </div>
                         <div class="mb-3">
-                            <input type="text" class="form-control" name="salary" placeholder="Salary">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Email">
                         </div>
-                        
-                        <!-- <div class="mb-3">
-                            <input type="text" class="form-control" name="gender" placeholder="Gender">
-                        </div> -->
-                        
-                         <div class="mb-3">
+                        <div class="mb-3">
+                            <label for="salary">Salary</label>
+                            <input type="text" class="form-control" name="salary" id="salary" placeholder="Salary">
+                        </div>
+                        <div class="mb-3">
                             <label for="designation">Designation</label>
-                            <select class="form-control" name="designation" placeholder="Designation">
+                            <select class="form-control" name="designation" id="designation" placeholder="Designation">
                                 <option value="1">Admin</option>
                                 <option value="2">Employee</option>
                             </select>
                         </div> 
                         <div class="mb-3">
-                            <input type="text" class="form-control" name="username" placeholder="Username">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" name="username" id="username" placeholder="Username">
                         </div>
                         <div class="mb-3">
-                            <input type="password" class="form-control" name="password" placeholder="Password">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                         </div>
                         <button type="submit" class="btn btn-primary">Register</button>
                     </form>

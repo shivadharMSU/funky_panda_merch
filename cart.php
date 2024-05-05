@@ -121,7 +121,7 @@ $conn->close();
         <label for="paymentMethod">Select Payment Method:</label>
             <select class="form-control" id="paymentMethod" name="payment_method">
                 <option value="card">Card</option>
-                <option value="cash">Cash on Delivery</option>
+                <option value="Cash On Delivery">Cash on Delivery</option>
             </select>
             <button type="submit" class="btn btn-primary">Place Order</button>
         </form>
